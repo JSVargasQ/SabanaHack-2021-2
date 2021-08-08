@@ -10,11 +10,12 @@ import { AdminRoutingModule } from './admin-routing.module';
 
 import {
   DashboardComponent,
+  PlacesComponent,
   IconsComponent,
-  MapsComponent,
   UserProfileComponent,
   TablesComponent,
 } from './pages';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -25,13 +26,14 @@ import {
     MatIconModule,
     NgbModule,
     ClipboardModule,
+    SharedModule,
   ],
   declarations: [
     DashboardComponent,
+    PlacesComponent,
     UserProfileComponent,
     TablesComponent,
     IconsComponent,
-    MapsComponent,
   ],
 })
 export class AdminModule {}

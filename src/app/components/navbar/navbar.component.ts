@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
+
   constructor(
     location: Location,
     private element: ElementRef,
@@ -27,17 +28,25 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.listTitles = ROUTES.filter((listTitle) => listTitle);
   }
+
   getTitle() {
-    var titlee = this.location.prepareExternalUrl(this.location.path());
+    let titlee = this.location.prepareExternalUrl(this.location.path());
     if (titlee.charAt(0) === '#') {
       titlee = titlee.slice(1);
     }
 
-    for (var item = 0; item < this.listTitles.length; item++) {
+    for (let item = 0; item < this.listTitles.length; item++) {
       if (this.listTitles[item].path === titlee) {
         return this.listTitles[item].title;
       }
     }
-    return 'Home';
+    return 'Blank';
+  }
+
+  getNameProfile(): string {
+    if (localStorage.getItem('nameProfile')) {
+      return localStorage.getItem('nameProfile');
+    }
+    return 'Sack';
   }
 }
