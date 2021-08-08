@@ -5,8 +5,8 @@ export const response = [
     role: 'ADMIN',
   },
   {
-    email: 'dvaloyesp@hotmail.com',
-    password: '2',
+    email: 'user',
+    password: '1234',
     role: 'USER',
   },
 ];

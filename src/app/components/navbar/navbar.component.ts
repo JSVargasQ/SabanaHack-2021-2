@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {
   Location,
@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  @Input() showLogo: boolean;
+
   public focus;
   public listTitles: any[];
   public location: Location;
@@ -30,16 +32,14 @@ export class NavbarComponent implements OnInit {
   }
 
   getTitle() {
-    let titlee = this.location.prepareExternalUrl(this.location.path());
-    if (titlee.charAt(0) === '#') {
-      titlee = titlee.slice(1);
-    }
+    const titlee = this.location.prepareExternalUrl(this.location.path());
 
     for (let item = 0; item < this.listTitles.length; item++) {
       if (this.listTitles[item].path === titlee) {
         return this.listTitles[item].title;
       }
     }
+
     return 'Blank';
   }
 

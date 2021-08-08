@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { PublicLayoutComponent } from './layouts';
+import {
+  AdminLayoutComponent,
+  UserLayoutComponent,
+  PublicLayoutComponent,
+} from './layouts';
 
 const routes: Routes = [
   {
@@ -12,6 +15,17 @@ const routes: Routes = [
     component: PublicLayoutComponent,
     loadChildren: () =>
       import('./public/public.module').then((m) => m.PublicModule),
+  },
+  {
+    path: '',
+    component: UserLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('src/app/user/user.module').then((m) => m.UserModule),
+      },
+    ],
   },
   {
     path: '',

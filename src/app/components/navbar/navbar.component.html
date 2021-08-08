@@ -1,13 +1,31 @@
-<nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+<nav
+  class="navbar navbar-top navbar-expand-md navbar-dark"
+  id="navbar-main"
+  [ngClass]="showLogo === true ? 'bg-white' : ''"
+>
   <div class="container-fluid">
     <!-- Brand -->
     <a
+      *ngIf="showLogo !== true"
       class="h4 mb-0 text-uppercase d-none d-lg-inline-block"
       routerLinkActive="active"
-      [routerLink]="['/dashboard']"
+      [routerLink]="['/passport']"
       >{{ getTitle() }}</a
     >
-
+    <!-- Logo -->
+    <a
+      *ngIf="showLogo && showLogo === true"
+      class="navbar-brand pt-0"
+      routerLinkActive="active"
+      [routerLink]="['/home']"
+    >
+      <img
+        style="width: 70px"
+        src="./assets/img/brand/logo.jpeg"
+        class="ml-3 navbar-brand-img h-auto"
+        alt="..."
+      />
+    </a>
     <!-- User -->
     <ul class="navbar-nav align-items-center d-none d-md-flex">
       <li class="nav-item" ngbDropdown placement="bottom-right">
@@ -37,23 +55,7 @@
             class="dropdown-item"
           >
             <i class="ni ni-single-02"></i>
-            <span>My profile</span>
-          </a>
-          <a
-            routerLinkActive="active"
-            [routerLink]="['/user-profile']"
-            class="dropdown-item"
-          >
-            <i class="ni ni-settings-gear-65"></i>
-            <span>Settings</span>
-          </a>
-          <a
-            routerLinkActive="active"
-            [routerLink]="['/user-profile']"
-            class="dropdown-item"
-          >
-            <i class="ni ni-calendar-grid-58"></i>
-            <span>Activity</span>
+            <span>Mi perfil</span>
           </a>
           <a
             routerLinkActive="active"
@@ -66,7 +68,7 @@
           <div class="dropdown-divider"></div>
           <a [routerLink]="'/'" class="dropdown-item">
             <i class="ni ni-user-run"></i>
-            <span>Salir</span>
+            <span>Cerrar sesión</span>
           </a>
         </div>
       </li>

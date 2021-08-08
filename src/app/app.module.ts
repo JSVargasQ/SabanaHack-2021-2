@@ -6,9 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
-import { PublicLayoutComponent } from './layouts';
+import {
+  PublicLayoutComponent,
+  AdminLayoutComponent,
+  UserLayoutComponent,
+} from './layouts';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -28,7 +31,12 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
     FormlyModule.forRoot({ extras: { lazyRender: true } }),
     FormlyBootstrapModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, PublicLayoutComponent],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+    PublicLayoutComponent,
+    UserLayoutComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

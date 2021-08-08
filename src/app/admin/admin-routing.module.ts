@@ -10,7 +10,7 @@ import { PlacesComponent } from './pages';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: 'passport',
     component: DashboardComponent,
   },
   {

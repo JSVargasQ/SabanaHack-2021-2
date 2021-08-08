@@ -16,8 +16,6 @@ export class TableComponent {
   constructor() {}
 
   getDataOfElement(col: any, element: any): any {
-    console.log(col);
-    console.log(element);
     let html: string;
     const val = get(element, col.field);
     html = val;

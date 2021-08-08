@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { response } from './dummy-response';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   // Constructor
   // =================================
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
@@ -29,24 +29,28 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     setTimeout(() => {
-      const login: boolean = this.validatePassword(
-        this._username,
-        this._password
-      );
-      console.log('El estado de login es: ' + login);
+      const login: any = this.validatePassword(this._username, this._password);
+      if (login === null) {
+      } else {
+        if (login.role === 'USER') {
+          this.router.navigate(['/passport']);
+        } else if (login.role === 'ADMIN') {
+          this.router.navigate(['/places']);
+        }
+      }
       this.loading = false;
     }, 1500);
   }
 
-  validatePassword(username: string, password: string): boolean {
+  validatePassword(username: string, password: string): any {
     for (const el of response) {
       if (
         el.email.toLowerCase() === username.toLowerCase() &&
         el.password === password
       ) {
-        return true;
+        return el;
       }
     }
-    return false;
+    return null;
   }
 }
