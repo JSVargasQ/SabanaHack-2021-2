@@ -1,0 +1,99 @@
+<div class="header bg-white py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7"></div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <form role="form">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="ni ni-email-83"></i
+                  ></span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Correo electrónico"
+                  type="email"
+                  [(ngModel)]="_username"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="ni ni-lock-circle-open"></i
+                  ></span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Contraseña"
+                  type="password"
+                  [(ngModel)]="_password"
+                />
+              </div>
+            </div>
+            <div
+              class="custom-control custom-control-alternative custom-checkbox"
+            >
+              <input
+                class="custom-control-input"
+                id=" customCheckLogin"
+                type="checkbox"
+              />
+              <label class="custom-control-label" for=" customCheckLogin">
+                <span class="text-muted">Remember me</span>
+              </label>
+            </div>
+            <div class="text-center">
+              <button
+                mat-raised-button
+                type="button"
+                class="btn btn-lg btn-primary mt-4"
+                [disabled]="
+                  _username?.length < 1 ||
+                  _password?.length < 1 ||
+                  loading === true
+                "
+                (click)="iniciarSesion()"
+              >
+                <mat-icon *ngIf="loading">
+                  <mat-spinner color="primary" diameter="20"></mat-spinner>
+                </mat-icon>
+                <span class="ml-2">Iniciar sesión</span>
+              </button>
+            </div>
+          </form>
+          <hr class="my-4" />
+          <div class="btn-wrapper text-center">
+            <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
+              <span class="btn-inner--icon"
+                ><img src="../assets/img/icons/common/google.svg"
+              /></span>
+              <span class="btn-inner--text">Google</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <a href="javascript:void(0)" class="text-light"
+            ><small>¿Olvidaste tu contraseña?</small></a
+          >
+        </div>
+        <div class="col-6 text-right">
+          <a [routerLink]="'/register'" class="text-light"
+            ><small>Crear una cuenta</small></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

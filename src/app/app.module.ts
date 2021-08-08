@@ -1,18 +1,19 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PublicLayoutComponent } from './layouts';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
 @NgModule({
   imports: [
@@ -22,14 +23,13 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormlyModule.forRoot({ extras: { lazyRender: true } }),
+    FormlyBootstrapModule,
   ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    AuthLayoutComponent
-  ],
+  declarations: [AppComponent, AdminLayoutComponent, PublicLayoutComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
