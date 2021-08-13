@@ -6,11 +6,13 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from '../shared/shared.module';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { PassportComponent } from './pages';
 import { MapComponent } from './components';
 
 import { UserRoutingModule } from './user-routing.module';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [PassportComponent, MapComponent],
@@ -23,6 +25,8 @@ import { UserRoutingModule } from './user-routing.module';
     NgbModule,
     ClipboardModule,
     SharedModule,
+    MatMenuModule,
+    MatCheckboxModule,
   ],
 })
 export class UserModule {}

@@ -4,10 +4,33 @@
   </div>
 </div>
 <div class="container-fluid bg-white py-6 pb-5 mt--7">
-  <div class="row">
+  <div *ngIf="isOpen === false" class="row">
+    <div class="col-xl-6 mx-auto mb-5 mb-xl-0">
+      <div class="card shadow mainPagePassport btn" (click)="openPassport()">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 order-sm-1 order-md-2 order-2">
+              <div
+                class="d-flex align-items-center justify-content-center my-5"
+                style="height: 498px"
+              >
+                <img src="assets/img/brand/logoLetra.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isOpen === true" class="row">
     <div class="col-xl-8 mx-auto mb-5 mb-xl-0">
       <div class="card shadow passport">
         <div class="card-body">
+          <div class="text-left mb-2">
+            <span>
+              <em (click)="closePassport()" class="fas fa-times"></em>
+            </span>
+          </div>
           <div class="row">
             <div class="col-md-6 order-sm-2 order-md-1 order-1">
               <!-- Map -->
@@ -23,10 +46,26 @@
             <div class="col-md-6 order-sm-1 order-md-2 order-2">
               <div class="card shadow rounded-pill">
                 <div class="d-flex p-3 text-muted">
-                  Seleccione una categoria
+                  <span class="d-flex align-items-center ml-2">
+                    Seleccione una categoria
+                  </span>
                   <div class="ml-auto mr-1">
-                    <em class="fas fa-bars fa-lg text-dark"></em>
+                    <em
+                      class="btn fas fa-bars fa-lg text-dark p1"
+                      [matMenuTriggerFor]="menu"
+                    ></em>
                   </div>
+                  <mat-menu #menu="matMenu">
+                    <div class="badge-pill p-2">
+                      <div
+                        *ngFor="let category of categories"
+                        class="rounded-pill bg-yellow p-2 my-1"
+                      >
+                        <span class="text-white h4">{{ category.name }}</span>
+                        <input class="ml-2" type="checkbox" />
+                      </div>
+                    </div>
+                  </mat-menu>
                 </div>
               </div>
             </div>
