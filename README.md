@@ -12,6 +12,6 @@ La propuesta consiste en un mapa virtual que permita interesar a personas y sume
 4. Abrir localhost:4200 (Si esta libre el puerto 4200)
 
 # Evidencias:
-![Landing page](./img/Evidencia 1.png)
+![Landing page](https://github.com/Sagrav10/SabanaHack-2021-2/blob/59953c2af5cd82da88d836e2443ed7b7d6fa8279/img/Evidencia%201.png)
 
-![Mapa](./img/Evidencia 2.png)
+![Mapa]( https://github.com/Sagrav10/SabanaHack-2021-2/blob/59953c2af5cd82da88d836e2443ed7b7d6fa8279/img/Evidencia%202.png )
